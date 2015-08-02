@@ -27,7 +27,7 @@ class Metrica::Configuration
   attr_accessor :environments
 
   # The time interval in seconds how often scheduled reporters do the reporting.
-  # By default, it is 5 seconds.
+  # By default, 30 seconds.
   #
   # @!attribute [rw] report_interval
   # @return [Integer]
@@ -43,7 +43,7 @@ class Metrica::Configuration
     @prefix = nil
     @environments = %w(production)
     @reporters = []
-    @report_interval = 5
+    @report_interval = 30
     @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
   end
 

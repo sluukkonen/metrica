@@ -166,7 +166,6 @@ Metrica can report the metrics to the following systems:
 
 ```ruby
 Metrica.configure do |config|
-  config.report_interval = 30.seconds
   config.reporters << Metrica::Reporters::ConsoleReporter.new
 end
 ```
@@ -183,7 +182,6 @@ end
 
 ```ruby
 Metrica.configure do |config|
-  config.report_interval = 30.seconds
   config.reporters << Metrica::Reporters::GraphiteReporter.new(host: "localhost", port: 2003)
 end
 ```
@@ -192,7 +190,6 @@ end
 
 ```ruby
 Metrica.configure do |config|
-  config.report_interval = 30.seconds
   config.reporters << Metrica::Reporters::OpenTSDBReporter.new(url: "http://localhost:4242")
 end
 ```
