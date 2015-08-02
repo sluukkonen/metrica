@@ -47,7 +47,7 @@ the reporters.
 Metrica metric objects are raw Java objects from the Dropwizard Metrics library,
 so if you are already familiar with it, using metrica should be easy.
 
-See [Dropwizard Metrics's Javadoc](https://dropwizard.github.io/metrics/3.1.0/) for a full list of methods in each metric.
+See [Dropwizard Metrics's Javadoc](https://dropwizard.github.io/metrics/3.1.0/apidocs/) for a full list of methods in each metric.
 
 ### Meters
 
