@@ -50,6 +50,10 @@ it.
 
 ## Available Metrics
 
+Metrica metric objects are raw Java objects from the Dropwizard Metrics library,
+so if you are already familiar with it, you can use the same methods to use 
+Metrica.
+
 ### Meters
 
 A meter measures the rate of events over time (e.g., “requests per second”). 
@@ -137,11 +141,8 @@ as follows.
 ```ruby
 class RequestProcessor
    
-   java_import "com.codahale.metrics.SlidingTimeWindowReservoir"
-   java_import "java.util.concurrent.TimeUnit"
-
   def initialize
-    @timer = Metrica.register("requests", Timer.new(SlidingTimeWindowReservoir.new(5, TimeUnit::SECONDS)
+    @timer = Metrica.register("requests", Metrica::Timer.new(Metrica::SlidingTimeWindowReservoir.new(5, Metrica::TimeUnit::SECONDS)
   end
   def process(request)
     @timer.measure do 
