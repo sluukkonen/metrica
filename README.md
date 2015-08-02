@@ -186,6 +186,7 @@ Metrica.configure do |config|
   config.report_interval = 30.seconds
   config.reporters << Metrica::Reporters::GraphiteReporter.new(host: "localhost", port: 2003)
 end
+```
 
 ### Reporting to OpenTSDB
 
