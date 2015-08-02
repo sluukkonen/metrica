@@ -132,10 +132,10 @@ end
 
 If you want to customize a metric (see Dropwizard Metrics [documentation](https://dropwizard.github.io/metrics/3.1.0/getting-started/)
 for more information), you can register a custom metric by using
-+Metrica.register+.
+`Metrica.register`.
 
-For example, if you want to use a timer with a  +SlidingTimeWindowReservoir+ 
-instead of the default +ExponentiallyDecayingReservoir+, you can register it 
+For example, if you want to use a timer with a `SlidingTimeWindowReservoir` 
+instead of the default `ExponentiallyDecayingReservoir`, you can register it 
 as follows.
 
 ```ruby
