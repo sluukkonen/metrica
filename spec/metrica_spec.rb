@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe Metrica do
+RSpec.describe Metrica do
 
   let(:registry) { Metrica.registry }
 
