@@ -45,8 +45,8 @@ Metrica.configure do |config|
 end
 ```
 
-If you're not using Rails, you'll have to call +Metrica.start+ manually to start
-it.
+If you're not using Rails, you'll have to call `Metrica.start` manually to start
+the reporters.
 
 ## Available Metrics
 
