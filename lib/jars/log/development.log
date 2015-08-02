@@ -1,0 +1,185 @@
+2015-08-01 22:14:08 +0300 WARNING: could not resolve compat version from '2.2.2' will use default
+java.lang.IllegalArgumentException: No enum constant org.jruby.CompatVersion.RUBY2_2
+	at java.lang.Enum.valueOf(Enum.java:238)
+	at org.jruby.rack.DefaultRackConfig.getCompatVersion(DefaultRackConfig.java:87)
+	at org.jruby.rack.DefaultRackApplicationFactory.initRuntimeConfig(DefaultRackApplicationFactory.java:306)
+	at org.jruby.rack.DefaultRackApplicationFactory.createRuntimeConfig(DefaultRackApplicationFactory.java:252)
+	at org.jruby.rack.DefaultRackApplicationFactory.init(DefaultRackApplicationFactory.java:87)
+	at org.jruby.rack.RackApplicationFactoryDecorator.doInit(RackApplicationFactoryDecorator.java:112)
+	at org.jruby.rack.PoolingRackApplicationFactory.doInit(PoolingRackApplicationFactory.java:111)
+	at org.jruby.rack.RackApplicationFactoryDecorator.init(RackApplicationFactoryDecorator.java:100)
+	at org.jruby.rack.RackServletContextListener.contextInitialized(RackServletContextListener.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4992)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5490)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1575)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1565)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+2015-08-01 22:14:08 +0300 INFO: jruby 9.0.0.0 (2.2.2) 2015-07-21 e10ec96 Java HotSpot(TM) 64-Bit Server VM 25.51-b03 on 1.8.0_51-b16 +jit [darwin-x86_64]
+2015-08-01 22:14:08 +0300 INFO: using 1:5 runtime pool with acquire timeout of 5.0 seconds
+2015-08-01 22:14:08 +0300 WARNING: could not resolve compat version from '2.2.2' will use default
+java.lang.IllegalArgumentException: No enum constant org.jruby.CompatVersion.RUBY2_2
+	at java.lang.Enum.valueOf(Enum.java:238)
+	at org.jruby.rack.DefaultRackConfig.getCompatVersion(DefaultRackConfig.java:87)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.jruby.javasupport.JavaMethod.invokeDirectWithExceptionHandling(JavaMethod.java:442)
+	at org.jruby.javasupport.JavaMethod.invokeDirect(JavaMethod.java:306)
+	at org.jruby.java.invokers.InstanceMethodInvoker.call(InstanceMethodInvoker.java:35)
+	at org.jruby.java.invokers.InstanceMethodInvoker.call(InstanceMethodInvoker.java:103)
+	at org.jruby.internal.runtime.methods.AliasMethod.call(AliasMethod.java:81)
+	at org.jruby.RubyClass.finvoke(RubyClass.java:520)
+	at org.jruby.RubyBasicObject.send19(RubyBasicObject.java:1602)
+	at org.jruby.RubyKernel.send19(RubyKernel.java:1998)
+	at org.jruby.RubyKernel$INVOKER$s$send19.call(RubyKernel$INVOKER$s$send19.gen)
+	at org.jruby.internal.runtime.methods.JavaMethod$JavaMethodOneOrNBlock.call(JavaMethod.java:364)
+	at org.jruby.runtime.callsite.CachingCallSite.cacheAndCall(CachingCallSite.java:313)
+	at org.jruby.runtime.callsite.CachingCallSite.call(CachingCallSite.java:163)
+	at org.jruby.ir.interpreter.InterpreterEngine.processCall(InterpreterEngine.java:289)
+	at org.jruby.ir.interpreter.StartupInterpreterEngine.interpret(StartupInterpreterEngine.java:77)
+	at org.jruby.ir.interpreter.Interpreter.INTERPRET_BLOCK(Interpreter.java:136)
+	at org.jruby.runtime.InterpretedIRBlockBody.commonYieldPath(InterpretedIRBlockBody.java:118)
+	at org.jruby.runtime.IRBlockBody.doYield(IRBlockBody.java:139)
+	at org.jruby.runtime.BlockBody.yield(BlockBody.java:77)
+	at org.jruby.runtime.Block.yield(Block.java:147)
+	at org.jruby.RubyArray.collect(RubyArray.java:2286)
+	at org.jruby.RubyArray.map19(RubyArray.java:2300)
+	at org.jruby.RubyArray$INVOKER$i$0$0$map19.call(RubyArray$INVOKER$i$0$0$map19.gen)
+	at org.jruby.internal.runtime.methods.JavaMethod$JavaMethodZeroBlock.call(JavaMethod.java:472)
+	at org.jruby.runtime.callsite.CachingCallSite.cacheAndCall(CachingCallSite.java:273)
+	at org.jruby.runtime.callsite.CachingCallSite.callBlock(CachingCallSite.java:79)
+	at org.jruby.runtime.callsite.CachingCallSite.call(CachingCallSite.java:83)
+	at org.jruby.ir.instructions.CallBase.interpret(CallBase.java:419)
+	at org.jruby.ir.interpreter.InterpreterEngine.processCall(InterpreterEngine.java:321)
+	at org.jruby.ir.interpreter.StartupInterpreterEngine.interpret(StartupInterpreterEngine.java:77)
+	at org.jruby.internal.runtime.methods.MixedModeIRMethod.INTERPRET_METHOD(MixedModeIRMethod.java:128)
+	at org.jruby.internal.runtime.methods.MixedModeIRMethod.call(MixedModeIRMethod.java:114)
+	at org.jruby.ir.runtime.IRRuntimeHelpers.unresolvedSuper(IRRuntimeHelpers.java:929)
+	at org.jruby.ir.instructions.UnresolvedSuperInstr.interpret(UnresolvedSuperInstr.java:83)
+	at org.jruby.ir.interpreter.InterpreterEngine.processCall(InterpreterEngine.java:321)
+	at org.jruby.ir.interpreter.StartupInterpreterEngine.interpret(StartupInterpreterEngine.java:77)
+	at org.jruby.ir.interpreter.InterpreterEngine.interpret(InterpreterEngine.java:76)
+	at org.jruby.internal.runtime.methods.MixedModeIRMethod.INTERPRET_METHOD(MixedModeIRMethod.java:163)
+	at org.jruby.internal.runtime.methods.MixedModeIRMethod.call(MixedModeIRMethod.java:149)
+	at org.jruby.internal.runtime.methods.DynamicMethod.call(DynamicMethod.java:193)
+	at org.jruby.RubyClass.finvoke(RubyClass.java:616)
+	at org.jruby.runtime.Helpers.invoke(Helpers.java:399)
+	at org.jruby.RubyBasicObject.callMethod(RubyBasicObject.java:365)
+	at org.jruby.rack.DefaultRackApplicationFactory.captureMessage(DefaultRackApplicationFactory.java:483)
+	at org.jruby.rack.DefaultRackApplicationFactory.access$000(DefaultRackApplicationFactory.java:43)
+	at org.jruby.rack.DefaultRackApplicationFactory$RackApplicationImpl.init(DefaultRackApplicationFactory.java:448)
+	at org.jruby.rack.PoolingRackApplicationFactory.initAndPutApplicationToPool(PoolingRackApplicationFactory.java:310)
+	at org.jruby.rack.PoolingRackApplicationFactory.access$000(PoolingRackApplicationFactory.java:44)
+	at org.jruby.rack.PoolingRackApplicationFactory$1.run(PoolingRackApplicationFactory.java:300)
+	at java.lang.Thread.run(Thread.java:745)
+
+2015-08-01 22:14:08 +0300 INFO: An exception happened during JRuby-Rack startup
+no such file to load -- /Users/sluukkonen/Code/metrica/lib/jars/config/environment.rb
+--- System
+jruby 9.0.0.0 (2.2.2) 2015-07-21 e10ec96 Java HotSpot(TM) 64-Bit Server VM 25.51-b03 on 1.8.0_51-b16 +jit [darwin-x86_64]
+Time: 2015-08-01 22:14:08 +0300
+Server: Apache Tomcat/7.0.55
+jruby.home: /Users/sluukkonen/.rbenv/versions/jruby-9.0.0.0
+
+--- Context Init Parameters:
+jruby.compat.version = 2.2.2
+jruby.initial.runtimes = 1
+jruby.max.runtimes = 5
+jruby.min.runtimes = 1
+jruby.rack.error = false
+jruby.rack.layout_class = JRuby::Rack::FileSystemLayout
+jruby.rack.logging = JUL
+jruby.rack.logging.name = org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[default]
+jruby.runtime.acquire.timeout = 5.0
+public.root = public
+rails.env = development
+rails.root = /Users/sluukkonen/Code/metrica/lib/jars
+
+--- Backtrace
+LoadError: no such file to load -- /Users/sluukkonen/Code/metrica/lib/jars/config/environment.rb
+              load at org/jruby/RubyKernel.java:958
+  load_environment at uri:classloader:/jruby/rack/rails/environment2.rb:25
+  load_environment at uri:classloader:/jruby/rack/rails_booter.rb:83
+             <top> at <script>:1
+
+--- RubyGems
+Gem.dir: /Users/sluukkonen/.rbenv/versions/jruby-9.0.0.0/lib/ruby/gems/shared
+Gem.path:
+/Users/sluukkonen/.gem/jruby/2.2.0
+/Users/sluukkonen/.rbenv/versions/jruby-9.0.0.0/lib/ruby/gems/shared
+Activated gems:
+
+--- Bundler
+undefined method `bundle_path' for Bundler:Module
+
+--- JRuby-Rack Config
+compat_version = 
+default_logger = org.jruby.rack.logging.StandardOutLogger@11f6c402
+equals = <error: >
+err = java.io.PrintStream@7832e65c
+filter_adds_html = true
+filter_verifies_resource = false
+ignore_environment = false
+initial_memory_buffer_size = 
+initial_runtimes = 1
+jms_connection_factory = 
+jms_jndi_properties = 
+logger = org.jruby.rack.logging.JulLogger@48a22e40
+logger_class_name = JUL
+logger_name = org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[default]
+maximum_memory_buffer_size = 
+maximum_runtimes = 5
+num_initializer_threads = 
+out = java.io.PrintStream@ac983fd
+rackup = 
+rackup_path = 
+rewindable = true
+runtime_arguments = 
+runtime_environment = 
+runtime_timeout_seconds = 
+serial_initialization = false
+servlet_context = org.apache.catalina.core.ApplicationContextFacade@256e7a6b
+throw_init_exception = true
+
+--- $LOAD_PATH:
+/Users/sluukkonen/.rbenv/versions/jruby-9.0.0.0/lib/ruby/2.2/site_ruby
+/Users/sluukkonen/.rbenv/versions/jruby-9.0.0.0/lib/ruby/stdlib
+2015-08-01 22:14:08 +0300 SEVERE: unable to initialize application
+org.jruby.exceptions.RaiseException: (LoadError) no such file to load -- /Users/sluukkonen/Code/metrica/lib/jars/config/environment.rb
+	at org.jruby.RubyKernel.load(org/jruby/RubyKernel.java:958)
+	at RUBY.load_environment(uri:classloader:/jruby/rack/rails/environment2.rb:25)
+	at RUBY.load_environment(uri:classloader:/jruby/rack/rails_booter.rb:83)
+	at RUBY.<top>(<script>:1)
+
+2015-08-01 22:14:08 +0300 INFO: added application to pool, size now = 1
+2015-08-01 22:14:08 +0300 SEVERE: Exception sending context initialized event to listener instance of class org.jruby.rack.rails.RailsServletContextListener
+org.jruby.rack.RackInitializationException: no such file to load -- /Users/sluukkonen/Code/metrica/lib/jars/config/environment.rb
+	from org/jruby/RubyKernel.java:958:in `load'
+	from uri:classloader:/jruby/rack/rails/environment2.rb:25:in `load_environment'
+	from uri:classloader:/jruby/rack/rails_booter.rb:83:in `load_environment'
+	from <script>:1:in `<top>'
+
+	at org.jruby.rack.RackInitializationException.wrap(RackInitializationException.java:29)
+	at org.jruby.rack.RackApplicationFactoryDecorator.init(RackApplicationFactoryDecorator.java:104)
+	at org.jruby.rack.RackServletContextListener.contextInitialized(RackServletContextListener.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4992)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5490)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1575)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1565)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.jruby.exceptions.RaiseException: (LoadError) no such file to load -- /Users/sluukkonen/Code/metrica/lib/jars/config/environment.rb
+	at org.jruby.RubyKernel.load(org/jruby/RubyKernel.java:958)
+	at RUBY.load_environment(uri:classloader:/jruby/rack/rails/environment2.rb:25)
+	at RUBY.load_environment(uri:classloader:/jruby/rack/rails_booter.rb:83)
+	at RUBY.<top>(<script>:1)
+
