@@ -1,4 +1,4 @@
-# Metrica
+# Metrica [![Build Status](https://travis-ci.org/sluukkonen/metrica.svg?branch=master)](https://travis-ci.org/sluukkonen/metrica)
 
 Dropwizard Metrics for your JRuby apps.
 
