@@ -1,15 +1,9 @@
 # Metrica [![Build Status](https://travis-ci.org/sluukkonen/metrica.svg?branch=master)](https://travis-ci.org/sluukkonen/metrica)
 
-Dropwizard Metrics for your JRuby apps.
+[Dropwizard Metrics](https://dropwizard.github.io/metrics/3.1.0/) for your JRuby apps.
 
-Metrica allows you to collect metrics from your application. It's mainly 
-designed to work with Ruby on Rails applications, but it should work
-well in all kinds of Ruby apps.
-
-Metrica allows you to measure all kinds of metrics from your application while
-it's running in production. It offers Meters, Gauges, Timers and Histograms.
-See the Dropwizard Metrics [documentation](https://dropwizard.github.io/metrics/3.1.0/getting-started/)
-for more information about the different kinds of metrics you can measure.
+Metrica allows you to collect runtime metrics from your application in your production environment. It's mainly 
+designed to work with Ruby on Rails, but it should work well in all kinds of Ruby apps.
 
 ## Installation
 
@@ -51,13 +45,13 @@ the reporters.
 ## Available Metrics
 
 Metrica metric objects are raw Java objects from the Dropwizard Metrics library,
-so if you are already familiar with it, you can use the same methods to use 
-Metrica.
+so if you are already familiar with it, using metrica should be easy.
+
+See [Dropwizard Metrics's Javadoc](https://dropwizard.github.io/metrics/3.1.0/) for a full list of methods in each metric.
 
 ### Meters
 
-A meter measures the rate of events over time (e.g., “requests per second”). 
-In addition to the mean rate, meters also track 1-, 5-, and 15-minute moving 
+A meter measures the rate of events over time (e.g., “requests per second”) as well as 1-, 5-, and 15-minute moving 
 averages.
 
 ```ruby
@@ -95,8 +89,10 @@ end
 ### Histograms
 
 A histogram measures the statistical distribution of values in a stream of data. 
-In addition to minimum, maximum, mean, etc., it also measures median, 75th, 
+In addition to minimum, maximum, mean, etc., it also measures 50th, 75th, 
 90th, 95th, 98th, 99th, and 99.9th percentiles.
+
+The default Histogram implementation uses [reservoir sampling](https://en.wikipedia.org/wiki/Reservoir_sampling) to minimize memory usage, but its behavior is [customizable](https://dropwizard.github.io/metrics/3.1.0/manual/core/#histograms).
 
 ```ruby
 class RequestProcessor
@@ -112,7 +108,7 @@ end
 
 ### Timers
 
-A timer measures both the rate that a particular piece of code is called and the
+A Timer measures the rate that a particular piece of code is called and the
 distribution of its duration.
 
 ```ruby
@@ -132,7 +128,7 @@ end
 
 If you want to customize a metric (see Dropwizard Metrics [documentation](https://dropwizard.github.io/metrics/3.1.0/getting-started/)
 for more information), you can register a custom metric by using
-`Metrica.register`.
+the `Metrica.register` method.
 
 For example, if you want to use a timer with a `SlidingTimeWindowReservoir` 
 instead of the default `ExponentiallyDecayingReservoir`, you can register it 
@@ -142,7 +138,8 @@ as follows.
 class RequestProcessor
    
   def initialize
-    @timer = Metrica.register("requests", Metrica::Timer.new(Metrica::SlidingTimeWindowReservoir.new(5, Metrica::TimeUnit::SECONDS)
+    reservoir = Metrica::SlidingTimeWindowReservoir.new(5, Metrica::TimeUnit::SECONDS)
+    @timer = Metrica.register("requests", Metrica::Timer.new(reservoir))
   end
   def process(request)
     @timer.measure do 
@@ -194,17 +191,9 @@ Metrica.configure do |config|
 end
 ```
 
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/sluukkonen/metrica.
-
 
 ## License
 
