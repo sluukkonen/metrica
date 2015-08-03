@@ -1,9 +1,11 @@
 # Metrica [![Build Status](https://travis-ci.org/sluukkonen/metrica.svg?branch=master)](https://travis-ci.org/sluukkonen/metrica)
 
-[Dropwizard Metrics](https://dropwizard.github.io/metrics/3.1.0/) for your JRuby apps.
+[Dropwizard Metrics](https://dropwizard.github.io/metrics/3.1.0/) for your JRuby 
+apps.
 
-Metrica allows you to collect runtime metrics from your application in your production environment. It's mainly 
-designed to work with Ruby on Rails, but it should work well in all kinds of Ruby apps.
+Metrica allows you to collect runtime metrics from your application in your 
+production environment. It's mainly designed to work with Ruby on Rails, but it 
+should work well in all kinds of Ruby apps.
 
 ## Installation
 
@@ -27,8 +29,8 @@ Or install it yourself as:
 
 ## Usage
 
-If you're using Rails, Metrica comes out-of-the-box with a Rack middleware that collects some useful 
-metrics about your application.
+If you're using Rails, Metrica comes out-of-the-box with a Rack middleware that 
+collects useful metrics about the performance of your application.
 
 Metric name            | Type    | Description
 -----------------------|---------|----------------------------------------------------------
@@ -64,11 +66,13 @@ the reporters.
 Metrica metric objects are raw Java objects from the Dropwizard Metrics library,
 so if you are already familiar with it, using metrica should be easy.
 
-See [Dropwizard Metrics's Javadoc](https://dropwizard.github.io/metrics/3.1.0/apidocs/) for a full list of methods in each metric.
+See [Dropwizard Metrics's Javadoc](https://dropwizard.github.io/metrics/3.1.0/apidocs/) 
+for a full list of methods in each metric.
 
 ### Meters
 
-A meter measures the rate of events over time (e.g., “requests per second”) as well as 1-, 5-, and 15-minute moving 
+A meter measures the rate of events over time (e.g., “requests per second”) as 
+well as 1-, 5-, and 15-minute moving 
 averages.
 
 ```ruby
@@ -227,9 +231,11 @@ end
 
 ## Contributing
 
-Feedback, ideas, bug reports and pull requests are welcome on GitHub at https://github.com/sluukkonen/metrica.
+Feedback, ideas, bug reports and pull requests are welcome on GitHub at 
+https://github.com/sluukkonen/metrica.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the 
+[MIT License](http://opensource.org/licenses/MIT).
 
