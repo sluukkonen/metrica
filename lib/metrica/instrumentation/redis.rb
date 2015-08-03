@@ -4,7 +4,7 @@ module Metrica
       module Redis
 
         include Metrica::Measurable
-        instrument_method :logging, "redis.commands"
+        instrument_method :logging, "request.redis"
 
       end
     end

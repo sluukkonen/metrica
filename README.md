@@ -29,10 +29,11 @@ metrics about your application.
 Metric name            | Type    | Description
 -----------------------|---------|----------------------------------------------------------
 activeRequests         | Counter | The number of requests that are currently being processed.
-requests               | Timer   | The total time spent processing each request.
-controller.total       | Timer   | The time spent in the controller.
-db.queries             | Timer   | The time spent performing SQL queries.
-controller.rendering   | Timer   | The time spend rendering views.
+request.total          | Timer   | The total time spent processing each request.
+request.controller     | Timer   | The time spent in the controller (includes time spent rendering the views).
+request.rendering      | Timer   | The time spent rendering views.
+request.db             | Timer   | The time spent performing SQL queries.
+request.redis          | Timer   | The time spent performing Redis commands.
 statusCodes.ok         | Meter   | The number of 200 OK responses.
 statusCodes.created    | Meter   | The number of 201 Created responses.
 statusCodes.noContent  | Meter   | The number of 204 No Content responses.

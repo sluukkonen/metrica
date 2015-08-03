@@ -4,7 +4,7 @@ module Metrica
       module ActiveRecord
 
         include Metrica::Measurable
-        instrument_method :log, "db.queries"
+        instrument_method :log, "request.db"
 
       end
     end

@@ -5,7 +5,7 @@ module Metrica
         @app = app
 
         @active_requests = Metrica.counter("activeRequests")
-        @request_timer = Metrica.timer("requests")
+        @request_timer = Metrica.timer("request.total")
         @default_status_meters = {
             200 => Metrica.meter("statusCodes.ok"),
             201 => Metrica.meter("statusCodes.created"),
