@@ -1,6 +1,7 @@
 module Metrica
   module Rails
     module Instrumentation
+      # @api private
       module Redis
 
         include Metrica::Measurable

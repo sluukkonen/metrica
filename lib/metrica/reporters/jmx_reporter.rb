@@ -3,9 +3,9 @@ module Metrica
 
     class JmxReporter < Metrica::Reporter
 
-      attr_reader :underlying
-
       def initialize
+        super
+
         @underlying = com.codahale.metrics.JmxReporter.
           forRegistry(Metrica.registry).build
       end

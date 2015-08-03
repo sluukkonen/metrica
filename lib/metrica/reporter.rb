@@ -1,25 +1,23 @@
 module Metrica
 
-  # A convenience class that wraps a Java Reporter from the metrics library.
-  # @api private
+  # A base class for all reporters.
+  #
   # @see https://dropwizard.github.io/metrics/3.1.0/apidocs/com/codahale/metrics/Reporter.html
   class Reporter
 
-    # Returns the underlying Java Reporter.
-    #
+    # @!attribute [r] underlying
+    #   Returns the underlying Java reporter.
     # @return [com.codahale.metrics.Reporter]
-    def underlying
-      raise NotImplementedError, "This method should be overridden!"
-    end
+    attr_reader :underlying
 
     # Starts the underlying Reporter.
     def start
-      underlying.start
+      @underlying.start
     end
 
     # Stops the underlying Reporter.
     def stop
-      underlying.stop
+      @underlying.stop
     end
 
   end

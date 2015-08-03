@@ -3,7 +3,7 @@ require "logger"
 # A class that holds the current configuration of Metrica.
 class Metrica::Configuration
 
-  # An array of reporters that are currently active.
+  # An array of reporters that Metrica should report to.
   #
   # @!attribute [rw] reporters
   # @return [Array<Metrica::Reporter>]
@@ -17,34 +17,29 @@ class Metrica::Configuration
   # @return [String] .
   attr_accessor :prefix
 
-  # An array of Rails environments where Metrika should automatically be
-  # started. Metrika determines the current environment from the
-  # +RAILS_ENV+ environment variable. By default, the array contains only the
-  # production environment.
+  # An array of Rails environments where Metrica should automatically be
+  # started. Metrica determines the current environment from the
+  # +RAILS_ENV+ environment variable.
+  #
+  # By default, production.
   #
   # @!attribute [rw] environments
   # @return [Array<String>]
   attr_accessor :environments
 
-  # The time interval in seconds how often scheduled reporters do the reporting.
+  # How often scheduled reporters do the reporting.
+  #
   # By default, 30 seconds.
   #
   # @!attribute [rw] report_interval
   # @return [Integer]
   attr_accessor :report_interval
 
-  # The logger that Metrica uses. By default, Metrica logs to +STDOUT+.
-  #
-  # @!attribute [rw] logger
-  # @return [Logger]
-  attr_accessor :logger
-
   def initialize
     @prefix = nil
     @environments = %w(production)
     @reporters = []
     @report_interval = 30
-    @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
   end
 
 end

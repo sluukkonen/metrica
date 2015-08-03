@@ -124,6 +124,7 @@ module Metrica
 end
 
 # Give a nicer Ruby API to the Timer class.
+# @private
 class Metrica::Timer
   def measure
     context = time

@@ -1,5 +1,6 @@
 module Metrica
   module Rails
+    # @api private
     class Railtie < ::Rails::Railtie
 
       initializer "mertike.middleware" do |app|

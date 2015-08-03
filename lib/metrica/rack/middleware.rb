@@ -1,6 +1,7 @@
 module Metrica
   module Rack
     class Middleware
+      # @api private
       def initialize(app)
         @app = app
 

@@ -192,7 +192,7 @@ end
 
 ```ruby
 Metrica.configure do |config|
-  config.reporters << Metrica::Reporters::GraphiteReporter.new(host: "localhost", port: 2003)
+  config.reporters << Metrica::Reporters::GraphiteReporter.new(hostname: "localhost", port: 2003)
 end
 ```
 
@@ -206,7 +206,7 @@ end
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/sluukkonen/metrica.
+Feedback, ideas, bug reports and pull requests are welcome on GitHub at https://github.com/sluukkonen/metrica.
 
 ## License
 

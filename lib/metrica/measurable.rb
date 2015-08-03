@@ -3,6 +3,7 @@ module Metrica
   # Marking a method with +instrument_method+ wraps it in a
   # +com.codahale.metrics.Timer+.
   #
+  # @example Adding instrumentation to a method
   #   class MyClass
   #     def foo(a, b)
   #       ...
@@ -11,7 +12,6 @@ module Metrica
   #   end
   #
   # @see https://dropwizard.github.io/metrics/3.1.0/apidocs/com/codahale/metrics/Timer.html
-  # @!parse extend Measurable::ClassMethods
   module Measurable
 
     def self.included(base)
