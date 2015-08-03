@@ -23,11 +23,11 @@ Or install it yourself as:
 
 ## Usage
 
-If you're using Rails, Metricacomes out of the box with a Rack middleware that collects some useful 
+If you're using Rails, Metrica comes out of the box with a Rack middleware that collects some useful 
 metrics about your application.
 
 Metric name            | Type    | Description
---------------------------------------------------------------------------------------------
+-----------------------|---------|----------------------------------------------------------
 activeRequests         | Counter | The number of requests that are currently being processed.
 requests               | Timer   | The total time spent processing each request
 controller.total       | Timer   | The time spent in the controller
