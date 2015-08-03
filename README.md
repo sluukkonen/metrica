@@ -12,16 +12,12 @@ should work well in all kinds of Ruby apps.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'metrica'
+gem 'metrica', git: 'sluukkonen/metrica'
 ```
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install metrica
     
 ## Documentation
 
