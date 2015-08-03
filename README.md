@@ -23,18 +23,30 @@ Or install it yourself as:
 
 ## Usage
 
-If you're using Rails, simply configure Metrica in an initializer. Metrica
-comes out of the box with a Rack middleware that tracks how many requests are 
-being currently processed, how long request processing takes and what kind of 
-status codes your app returns. It also collects in-depth information about time
-spent processing requests in Rails controllers, rendering views or fetching 
-data from the database.
+If you're using Rails, Metricacomes out of the box with a Rack middleware that collects some useful 
+metrics about your application.
+
+Metric name            | Type    | Description
+--------------------------------------------------------------------------------------------
+activeRequests         | Counter | The number of requests that are currently being processed.
+requests               | Timer   | The total time spent processing each request
+controller.total       | Timer   | The time spent in the controller
+db.queries             | Timer   | The time spent performing SQL queries
+controller.rendering   | Timer   | The time spend rendering views 
+statusCodes.ok         | Meter   | The number of 200 OK responses
+statusCodes.created    | Meter   | The number of 201 Created responses
+statusCodes.noContent  | Meter   | The number of 204 No Content responses
+statusCodes.badRequest | Meter   | The number of 400 Bad Request responses
+statusCodes.notFound   | Meter   | The number of 404 Not Found responses
+statusCodes.error      | Meter   | The number of 500 Internal Server Error responses
+
+To configure Metrica, add an initializer.
 
 ```ruby
 # config/initializers/metrica.rb
 
 Metrica.configure do |config|
-  config.environments    = %w(staging production)         # The Rails environments where Metrica should run.
+  config.environments = %w(staging production)            # The environments where Metrica should run.
   config.reporters << Metrica::Reporters::JmxReporter.new # Publish the metrics to JMX.
 end
 ```
