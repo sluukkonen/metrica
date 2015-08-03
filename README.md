@@ -134,6 +134,23 @@ class RequestProcessor
     @timer = Metrica.timer("requests")
   end
   def process(request)
+    context = @timer.time do 
+    # Process the request…
+    ensure
+      context.stop
+    end
+  end
+end
+```
+
+Metrica also adds a handy `measure` method to the `Timer` class for ease-of-use.
+
+```ruby
+class RequestProcessor
+  def initialize
+    @timer = Metrica.timer("requests")
+  end
+  def process(request)
     @timer.measure do 
       # Process the request…
     end
