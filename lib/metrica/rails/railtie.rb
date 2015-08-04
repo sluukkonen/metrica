@@ -10,7 +10,7 @@ module Metrica
       config.after_initialize do
         # Insert ActiveRecord instrumentation
         if defined?(::ActiveRecord::ConnectionAdapters::AbstractAdapter)
-          require_relative "instrumentation/active_record"
+          require_relative "../instrumentation/active_record"
           ::ActiveRecord::ConnectionAdapters::AbstractAdapter.
               send(:include, Metrica::Instrumentation::ActiveRecord)
         end
