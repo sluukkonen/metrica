@@ -12,7 +12,7 @@ should work well in all kinds of Ruby apps.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'metrica', git: 'sluukkonen/metrica'
+gem 'metrica', github: 'sluukkonen/metrica'
 ```
 
 And then execute:
