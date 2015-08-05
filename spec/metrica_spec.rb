@@ -111,8 +111,21 @@ RSpec.describe Metrica do
 
     it "is possible to register a custom metric" do
       expect(Metrica.register("custom-metric", custom_metric)).
-          to be_a com.codahale.metrics.Metric
+        to be_a com.codahale.metrics.Metric
     end
+  end
+
+  context "Fetching" do
+
+    it "returns the metric with the given name" do
+      metric = Metrica.timer("new-metric")
+      expect(Metrica.fetch("new-metric")).to eq metric
+    end
+
+    it "returns nil if the metric cannot be found" do
+      expect(Metrica.fetch("nonexisting-metric")).to eq nil
+    end
+
   end
 
 end

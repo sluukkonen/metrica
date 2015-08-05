@@ -26,23 +26,20 @@ RSpec.describe Metrica::MethodInstrumentation do
 
     it "should return the result of the original method and measure the execution if a transaction is active" do
       Metrica::Transaction.perform do
-        expect_any_instance_of(Metrica::Timer).to receive(:time).and_call_original
-        expect_any_instance_of(Metrica::Timer::Context).to receive(:stop).and_call_original
+        expect(Metrica.fetch("test.metric")).to receive(:measure).and_call_original
 
         expect(TestWithoutTransactionSupport.new.test).to eq "test"
       end
     end
 
     it "should return the result of the original method and measure the execution even if a transaction isn't active" do
-      expect_any_instance_of(Metrica::Timer).to receive(:time).and_call_original
-      expect_any_instance_of(Metrica::Timer::Context).to receive(:stop).and_call_original
+      expect(Metrica.fetch("test.metric")).to receive(:measure).and_call_original
 
       expect(TestWithoutTransactionSupport.new.test).to eq "test"
     end
 
     it "should measure the execution even if the method throws an exception" do
-      expect_any_instance_of(Metrica::Timer).to receive(:time).and_call_original
-      expect_any_instance_of(Metrica::Timer::Context).to receive(:stop).and_call_original
+      expect(Metrica.fetch("test.metric.exception")).to receive(:measure).and_call_original
 
       expect { TestWithoutTransactionSupportThrowsException.new.test }.to raise_error(RuntimeError)
     end
@@ -64,29 +61,26 @@ RSpec.describe Metrica::MethodInstrumentation do
       def test
         raise RuntimeError, "exception"
       end
-      instrument_method :test, "test.metric.exception", within_transaction: true
+      instrument_method :test, "test.metric.transaction.exception", within_transaction: true
     end
 
     it "should return the result of the original method and measure the execution if a transaction is active" do
       Metrica::Transaction.perform do
-        expect_any_instance_of(Metrica::Timer).to receive(:time).and_call_original
-        expect_any_instance_of(Metrica::Timer::Context).to receive(:stop).and_call_original
+        expect(Metrica.fetch("test.metric.transaction")).to receive(:measure).and_call_original
 
         expect(TestWithTransactionSupport.new.test).to eq "test"
       end
     end
 
     it "should not measure anything if a transaction isn't active" do
-      expect_any_instance_of(Metrica::Timer).to_not receive(:time).and_call_original
-      expect_any_instance_of(Metrica::Timer::Context).to_not receive(:stop).and_call_original
+      expect(Metrica.fetch("test.metric.transaction")).to_not receive(:measure)
 
       expect(TestWithTransactionSupport.new.test).to eq "test"
     end
 
     it "should measure the execution even if the method throws an exception" do
       Metrica::Transaction.perform do
-        expect_any_instance_of(Metrica::Timer).to receive(:time).and_call_original
-        expect_any_instance_of(Metrica::Timer::Context).to receive(:stop).and_call_original
+        expect(Metrica.fetch("test.metric.transaction.exception")).to receive(:measure).and_call_original
 
         expect { TestWithTransactionSupportThrowsException.new.test }.to raise_error(RuntimeError)
       end

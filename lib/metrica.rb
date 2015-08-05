@@ -44,6 +44,14 @@ module Metrica
     # @return [Metrica::Configuration] Returns the current configuration.
     attr_reader :config
 
+    # Returns a metric registered with the given name, or nil.
+    #
+    # @param name [String] The name of the metric.
+    # @return [com.codahale.metrics.Metric]
+    def fetch(name)
+      @registry.getMetrics.get(name)
+    end
+
     # Creates a new counter with the specified name.
     #
     # @see https://dropwizard.github.io/metrics/3.1.0/apidocs/com/codahale/metrics/Counter.html
