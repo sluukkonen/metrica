@@ -1,14 +1,15 @@
 module Metrica
-  module Rails
-    module Instrumentation
-      # @api private
-      module ActiveRecord
+  module Instrumentation
+    # @api private
+    module ActiveRecord
 
-        include Metrica::Measurable
-        instrument_method :log, "request.db"
-
+      def self.included(base)
+        base.class_eval do
+          include Metrica::Measurable
+          instrument_method :log, "request.db"
+        end
       end
-    end
 
+    end
   end
 end

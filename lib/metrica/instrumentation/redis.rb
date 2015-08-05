@@ -1,13 +1,15 @@
 module Metrica
-  module Rails
-    module Instrumentation
-      # @api private
-      module Redis
+  module Instrumentation
+    # @api private
+    module Redis
 
-        include Metrica::Measurable
-        instrument_method :logging, "request.redis"
-
+      def self.included(base)
+        base.class_eval do
+          include Metrica::Measurable
+          instrument_method :logging, "request.redis"
+        end
       end
+
     end
   end
 end
