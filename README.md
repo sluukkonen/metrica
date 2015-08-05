@@ -183,6 +183,24 @@ class RequestProcessor
 end
 ```
 
+## Instrumenting a method
+
+Metrica includes a handy module that allows you to add a Timer around a method. Simply
+extend the `Metrica::MethodInstrumentation` module an mark the method you'd like to
+instrument. 
+
+```ruby
+class RequestProcessor
+  extend Metrica::MethodInstrumentation
+  
+  def process(request)
+    # Process the request…
+  end
+  instrument_method :process, "metric-name"
+  
+end
+```
+
 ## Reporters
 
 Collecting metrics isn't enough, you'll also need to report them somewhere.
