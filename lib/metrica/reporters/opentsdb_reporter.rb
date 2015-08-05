@@ -20,7 +20,7 @@ module Metrica
         @underlying = com.github.sps.metrics.OpenTsdbReporter.
             forRegistry(Metrica.registry).
             prefixedWith(Metrica.config.prefix).
-            withTags(@tags).
+            withTags(to_java_hashmap(@tags)).
             build(opentsdb)
       end
 
@@ -32,9 +32,8 @@ module Metrica
       end
 
       def to_java_hashmap(hash)
-        java.util.HashMap.new.tap do |map|
-          hash.each { |k, v| map.put(k.to_s.to_java(:string),
-                                     v.to_s.to_java(:string)) }
+        hash.each_with_object(java.util.HashMap.new) do |(k, v), map|
+          map.put(k.to_s, v.to_s)
         end
       end
 
