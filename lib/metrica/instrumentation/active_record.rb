@@ -5,8 +5,8 @@ module Metrica
 
       def self.included(base)
         base.class_eval do
-          include Metrica::MethodInstrumentation
-          instrument_method :log, "request.db"
+          extend Metrica::MethodInstrumentation
+          instrument_method :log, "request.db", within_transaction: true
         end
       end
 
