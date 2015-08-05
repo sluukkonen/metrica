@@ -2,6 +2,7 @@ require "metrica_jars"
 
 require_relative "metrica/version"
 require_relative "metrica/configuration"
+require_relative "metrica/transaction"
 require_relative "metrica/reporter"
 require_relative "metrica/scheduled_reporter"
 require_relative "metrica/reporters/console_reporter"

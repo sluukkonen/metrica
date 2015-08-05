@@ -32,7 +32,11 @@ module Metrica
         class_eval <<-RUBY, __FILE__, __LINE__
           @@#{timer_name} = Metrica.timer("#{metric_name}")
           def #{method_name}(*args, &block)
-            @@#{timer_name}.measure do
+            if Metrica::Transaction.active?
+              @@#{timer_name}.measure do
+                #{uninstrumented_method}(*args, &block)
+              end
+            else
               #{uninstrumented_method}(*args, &block)
             end
           end

@@ -20,6 +20,7 @@ module Metrica
       end
 
       def call(env)
+        Metrica::Transaction.start
         @active_requests.inc
 
         begin
@@ -32,6 +33,7 @@ module Metrica
           raise e
         ensure
           @active_requests.dec
+          Metrica::Transaction.stop
         end
 
         result
