@@ -1,13 +1,13 @@
 require "spec_helper"
 
-RSpec.describe Metrica::Measurable do
+RSpec.describe Metrica::MethodInstrumentation do
 
   # See http://wiki.jruby.org/Persistence
   Metrica::Timer.__persistent__ = true
   Metrica::Timer::Context.__persistent__ = true
 
   class Test
-    include Metrica::Measurable
+    include Metrica::MethodInstrumentation
     def test
       "test"
     end
@@ -15,7 +15,7 @@ RSpec.describe Metrica::Measurable do
 
   end
   class TestThrowsException
-    include Metrica::Measurable
+    include Metrica::MethodInstrumentation
     def test
       raise RuntimeError, "exception"
     end

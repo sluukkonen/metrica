@@ -5,7 +5,7 @@ module Metrica
 
       def self.included(base)
         base.class_eval do
-          include Metrica::Measurable
+          include Metrica::MethodInstrumentation
           instrument_method :logging, "request.redis"
         end
       end

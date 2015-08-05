@@ -12,7 +12,7 @@ module Metrica
   #   end
   #
   # @see https://dropwizard.github.io/metrics/3.1.0/apidocs/com/codahale/metrics/Timer.html
-  module Measurable
+  module MethodInstrumentation
 
     def self.included(base)
       base.extend(ClassMethods)

@@ -135,6 +135,6 @@ class Metrica::Timer
   end
 end
 
-require_relative "metrica/measurable"
+require_relative "metrica/method_instrumentation"
 require_relative "metrica/rack/middleware"
 require_relative "metrica/rails/railtie" if defined?(Rails)
