@@ -134,7 +134,7 @@ class RequestProcessor
     @timer = Metrica.timer("requests")
   end
   def process(request)
-    context = @timer.time do 
+    context = @timer.time 
     # Process the request…
     ensure
       context.stop
