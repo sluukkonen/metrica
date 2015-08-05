@@ -15,6 +15,13 @@ module Metrica
         Thread.current[:metrica_transaction_active] = nil
       end
 
+      def perform
+        start
+        yield
+      ensure
+        stop
+      end
+
     end
   end
 end
