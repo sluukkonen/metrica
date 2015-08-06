@@ -5,13 +5,12 @@ module Metrica
   class ScheduledReporter < Reporter
 
     def initialize(options = {})
-      @report_interval = options[:report_interval]
+      @report_interval = (options[:report_interval] || Metrica.config.report_interval).to_i
       parse_additional_options(options)
     end
 
     def start
-      @underlying.start(@report_interval || Metrica.config.report_interval.to_i,
-                        TimeUnit::SECONDS)
+      @underlying.start(@report_interval, TimeUnit::SECONDS)
     end
 
     protected
