@@ -132,6 +132,10 @@ module Metrica
 
 end
 
+at_exit do
+  Metrica.stop 
+end
+
 # Give a nicer Ruby API to the Timer class.
 # @private
 class Metrica::Timer
